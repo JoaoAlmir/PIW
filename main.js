@@ -1,5 +1,5 @@
 const http = require("http");
-const express_app = require("./config/express");
+const express_app = require("./config/express.js");
 
 //chama a função de express_app
 let app = express_app();
