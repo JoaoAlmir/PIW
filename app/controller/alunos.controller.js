@@ -48,3 +48,10 @@ module.exports.obterAlunoPorId = function (req, res) {
         res.status(200).json({aluno_procurado});
 
 }
+
+module.exports.inserirAlunos = function (req, res) {
+    let alunos = req.push;
+    alunos.push(alunos);
+    res.status(201).json(alunos);
+}
+
