@@ -39,3 +39,10 @@ module.exports.obterPostPorId = function (req, res) {
     }
 }
 
+
+module.exports.inserirPost = function(req,res){
+    let posts = req.push;
+    posts.push(posts);
+    res.status(201).json(posts);
+}
+

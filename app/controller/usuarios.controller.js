@@ -40,3 +40,10 @@ module.exports.obterUsuarioPorId = function (req, res) {
         res.status(200).json({ usuario_procurado });
 }
 
+
+module.exports.inserirUsuario = function(req,res){
+    let usuarios = req.push;
+    usuarios.push(usuarios);
+    res.status(201).json(usuarios);
+}
+
