@@ -9,11 +9,12 @@ module.exports = function(){
     let app = express(); 
     //Definindo variavel de aplicação
     app.set("port", 9999);
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false })); 
     routes_aluno(app);
     routes_usuario(app);
     routes_post(app);
-    app.use(express.json());
-    app.use(express.urlencoded({extended:false}));
     //app.use(express.static("./public")) <- padrao
     return app;
 }
+

@@ -42,8 +42,22 @@ module.exports.obterUsuarioPorId = function (req, res) {
 
 
 module.exports.inserirUsuario = function(req,res){
-    let usuarios = req.push;
-    usuarios.push(usuarios);
+    let usuario = req.body;
+    console.log(req.body);
+    usuarios.push(usuario);
     res.status(201).json(usuarios);
 }
 
+module.exports.deleteUsuario = function (req, res){
+    let id = req.params.id;
+    let usuario_procurado = usuarios.find(usuario => (usuario.id == id));
+    if (usuario_procurado == null)
+        res.status(404).json({ "mensagem": "usuario não encontrado" });
+
+    else{
+        let usuarios_filtrados = usuarios.filter((usuario)=>(usuario.id != id));
+        usuarios = usuarios_filtrados;
+        res.status(200).json({usuario_procurado});
+
+    }
+}

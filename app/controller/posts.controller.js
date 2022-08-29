@@ -41,8 +41,21 @@ module.exports.obterPostPorId = function (req, res) {
 
 
 module.exports.inserirPost = function(req,res){
-    let posts = req.push;
-    posts.push(posts);
+    let post = req.body;
+    posts.push(post);
     res.status(201).json(posts);
 }
 
+module.exports.deletePost = function (req, res){
+    let id = req.params.id;
+    let post_procurado = posts.find(post => (post.id == id));
+    if (post_procurado == null)
+        res.status(404).json({ "mensagem": "Post não encontrado" });
+
+    else{
+        let posts_filtrados = posts.filter((post)=>(post.id != id));
+        posts = posts_filtrados;
+        res.status(200).json({post_procurado});
+
+    }
+}
