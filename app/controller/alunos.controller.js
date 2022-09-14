@@ -1,40 +1,21 @@
-let alunos = [
-    {
-        id: 1,
-        nome: "Marília",
-        ira: 2000
-    },
-    {
-        id: 2,
-        nome: "João",
-        ira:5000
-    },
-    {
-        id: 3,
-        nome: "Maria",
-        ira:6000
-    }
-]
+
 
 module.exports.obterAluno = function (req, res) {
-    //console.log("acesso obterAluno detectado");
+   
+    // alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira>min_ira));
+   
+    let promise = Aluno.find().exec();
+    promise.then(
+        function(alunos){
+            res.status(200).json(alunos);
+        }
+    ).catch(
+        function(error){
+            res.status(500).json(error);
+        }
+    )
 
-    let alunos_filtrados = alunos;
 
-    if(req.query.min_ira){
-        let min_ira = req.query.min_ira;
-        
-        alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira>min_ira));
-    }
-
-    if(req.query.max_ira){
-        let max_ira = req.query.max_ira;
-        
-        alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira<max_ira));
-     
-    }
-
-    res.json(alunos_filtrados);
 }
 
 module.exports.obterAlunoPorId = function (req, res) {
