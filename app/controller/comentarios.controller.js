@@ -1,6 +1,8 @@
 const Comentario = require("../models/comentario");
 const view_comentario = require("../views/comentarios");
 
+// comentarios_filtrados = comentarios_filtrados.filter((comentario)=>(comentario.ira>min_ira));
+
 module.exports.obterComentarios = function(req, res){
     let promise = Comentario.find().exec();
     promise.then(
