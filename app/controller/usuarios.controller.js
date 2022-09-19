@@ -1,5 +1,9 @@
 const Usuario = require("../models/usuario");
+const Post = require("../models/post");
+
 const view_usuario = require("../views/usuarios");
+const view_post = require("../views/posts");
+
 
 // usuarios_filtrados = usuarios_filtrados.filter((usuario)=>(usuario.ira>min_ira));
 
@@ -24,6 +28,20 @@ module.exports.obterUsuario = function(req, res){
     promise.then(
         function(usuario){
             res.status(200).json(view_usuario.render(usuario));
+        }
+    ).catch(
+        function(error){
+            res.status(500).json(error);
+        }
+    )
+}
+module.exports.obterUsuarioPost = function(req, res){
+    let id = req.params.id;
+    let criterio = { id_usuario: {"$eq":id}}
+    let promise = Post.find(criterio).exec();
+    promise.then(
+        function(post){
+            res.status(200).json(view_post.renderMany(post));
         }
     ).catch(
         function(error){

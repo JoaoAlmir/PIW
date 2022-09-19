@@ -18,19 +18,6 @@ module.exports.obterComentarios = function(req, res){
 }
 
 
-module.exports.obterComentario = function(req, res){
-    let id = req.params.id;
-    let promise = Comentario.findById(id).exec();
-    promise.then(
-        function(comentario){
-            res.status(200).json(view_comentario.render(comentario));
-        }
-    ).catch(
-        function(error){
-            res.status(500).json(error);
-        }
-    )
-}
 
 module.exports.inserirComentario = function(req, res){
     let comentario = req.body;

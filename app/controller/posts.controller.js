@@ -56,3 +56,5 @@ module.exports.removerPost = function (req, res){
         res.status(400).json({mensagem: "sua requisicao nao funfou"})
     })
 }
+
+
