@@ -2,6 +2,7 @@ const Aluno = require("../models/aluno");
 const view_aluno = require("../views/alunos");
 
 // alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira>min_ira));
+
 module.exports.obterAlunos = function(req, res){
     let promise = Aluno.find().exec();
     promise.then(
