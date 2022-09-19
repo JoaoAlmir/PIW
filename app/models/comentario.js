@@ -6,11 +6,11 @@ module.exports = function () {
             required: true
         },
         id_post: {
-            type: Number,
+            type: String,
             required: true
         },
         id_usuario: {
-            type: Number,
+            type: String,
             required: true
         },
     });
