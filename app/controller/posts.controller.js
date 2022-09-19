@@ -26,7 +26,7 @@ module.exports.obterPost = function (req, res) {
     res.json(posts);
 }
 
-module.exports.obterPostPorId = function (req, res) {
+module.exports.obterPosts = function (req, res) {
     let id = req.params.id;
     let post_procurado = posts.filter((posts)=>(posts.id == id));
 
@@ -46,7 +46,7 @@ module.exports.inserirPost = function(req,res){
     res.status(201).json(posts);
 }
 
-module.exports.deletePost = function (req, res){
+module.exports.removerPost = function (req, res){
     let id = req.params.id;
     let post_procurado = posts.find(post => (post.id == id));
     if (post_procurado == null)

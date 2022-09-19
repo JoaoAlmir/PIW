@@ -1,21 +1,34 @@
-const Aluno = require("../models/aluno")
+const Aluno = require("../models/aluno");
+const view_aluno = require("../views/alunos");
 
-module.exports.obterAluno = function (req, res) {
-   
-    // alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira>min_ira));
-   
+// alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira>min_ira));
+module.exports.obterAlunos = function(req, res){
     let promise = Aluno.find().exec();
     promise.then(
-        function(alunos){
-            res.status(200).json(alunos);
+        function(aluno){
+            res.status(200).json(view_aluno.renderMany(aluno));
         }
     ).catch(
         function(error){
-            res.status(400).json({mensagem: "sua requisicao nao funfou"})
+            console.log(error);
+            res.status(500).json(error);
         }
     )
+}
 
 
+module.exports.obterAluno = function(req, res){
+    let id = req.params.id;
+    let promise = Aluno.findById(id).exec();
+    promise.then(
+        function(aluno){
+            res.status(200).json(view_aluno.render(aluno));
+        }
+    ).catch(
+        function(error){
+            res.status(500).json(error);
+        }
+    )
 }
 
 module.exports.inserirAluno = function(req, res){
@@ -23,37 +36,22 @@ module.exports.inserirAluno = function(req, res){
     let promisse = Aluno.create(aluno);
     
     promisse.then(function(aluno){
-        res.status(201).json(aluno);
+        res.status(201).json(view_aluno.render(aluno));
     }).catch(function(error){
         res.status(400).json({mensagem: "sua requisicao nao funfou"})
     })
 }
 
 
-module.exports.obterAlunoPorId = function (req, res) {
+
+
+
+module.exports.removerAluno = function (req, res){
     let id = req.params.id;
-    let aluno_procurado = alunos.find(aluno => (aluno.id == id));
-
-    if (aluno_procurado == null)
-        res.status(404).json({ "mensagem": "Aluno não encontrado" });
-
-    else
-        res.status(200).json({aluno_procurado});
-
-}
-
-
-
-module.exports.deleteAluno = function (req, res){
-    let id = req.params.id;
-    let aluno_procurado = alunos.find(aluno => (aluno.id == id));
-    if (aluno_procurado == null)
-        res.status(404).json({ "mensagem": "Aluno não encontrado" });
-
-    else{
-        let alunos_filtrados = alunos.filter((aluno)=>(aluno.id != id));
-        alunos = alunos_filtrados;
-        res.status(200).json({aluno_procurado});
-
-    }
+    let promise = Aluno.findByIdAndDelete(id)
+    promise.then(function(aluno){
+        res.status(200).json(view_aluno.render(aluno));
+    }).catch(function(error){
+        res.status(400).json({mensagem: "sua requisicao nao funfou"})
+    })
 }
