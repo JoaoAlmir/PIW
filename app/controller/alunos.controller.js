@@ -1,4 +1,4 @@
-
+const Aluno = require("../models/aluno")
 
 module.exports.obterAluno = function (req, res) {
    
@@ -11,12 +11,24 @@ module.exports.obterAluno = function (req, res) {
         }
     ).catch(
         function(error){
-            res.status(500).json(error);
+            res.status(400).json({mensagem: "sua requisicao nao funfou"})
         }
     )
 
 
 }
+
+module.exports.inserirAluno = function(req, res){
+    let aluno = req.body;
+    let promisse = Aluno.create(aluno);
+    
+    promisse.then(function(aluno){
+        res.status(201).json(aluno);
+    }).catch(function(error){
+        res.status(400).json({mensagem: "sua requisicao nao funfou"})
+    })
+}
+
 
 module.exports.obterAlunoPorId = function (req, res) {
     let id = req.params.id;
@@ -30,11 +42,7 @@ module.exports.obterAlunoPorId = function (req, res) {
 
 }
 
-module.exports.inserirAluno = function(req, res){
-    let aluno = req.body;
-    alunos.push(aluno);
-    res.status(201).json(alunos);
-}
+
 
 module.exports.deleteAluno = function (req, res){
     let id = req.params.id;
