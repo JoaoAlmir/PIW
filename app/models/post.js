@@ -10,7 +10,7 @@ module.exports = function () {
             required: true
         },
         id_usuario: {
-            type: String,
+            type: Number,
             required: true
         },
     });

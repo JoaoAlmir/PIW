@@ -1,4 +1,3 @@
-
 function render (aluno){
     return {
         id: aluno._id,
