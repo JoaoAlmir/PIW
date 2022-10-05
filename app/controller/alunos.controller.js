@@ -1,6 +1,8 @@
 const Aluno = require("../models/aluno");
 const view_aluno = require("../views/alunos");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 
 // alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira>min_ira));
 
@@ -11,8 +13,8 @@ module.exports.login = function (req, res) {
     promise.then(
         function (aluno) {
             if (bcrypt.compareSync(info_login.senha, aluno.senha)) {
-                res.status(200).send('login ok');
-            
+                let token = jwt.sign({id:aluno.id},"senhasecreta")
+                res.status(200).json(token);
             }
             else {
                 res.status(401).send("login falhou");
