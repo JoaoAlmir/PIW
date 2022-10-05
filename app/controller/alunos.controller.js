@@ -5,34 +5,28 @@ const bcrypt = require("bcrypt");
 // alunos_filtrados = alunos_filtrados.filter((aluno)=>(aluno.ira>min_ira));
 
 
-module.exports.login = function(req, res){
+module.exports.login = function (req, res) {
     let info_login = req.body;
-    let promise = Aluno.findOne({matricula: info_login.matricula});
+    let promise = Aluno.findOne({ matricula: info_login.matricula });
     promise.then(
-        function(aluno){
-            if(bcrypt.compareSync(info_login.senha, aluno.senha)){
-                let token = jwt.sign(
-                    {
-                        id: aluno._id,
-                        matricula: aluno.matricula
-                    }
-                ,'senhasecreta');
-                console.log(token);
-                res.status(201).json({token: token});
-            }else{
-                res.status(401).send("Login falhou!");
+        function (aluno) {
+            if (bcrypt.compareSync(info_login.senha, aluno.senha)) {
+                res.status(200).send('login ok');
+            
+            }
+            else {
+                res.status(401).send("login falhou");
+
             }
         }
     ).catch(
-        function(error){
-            res.status(401).send("Login falhou!");
+        function (error) {
+            res.status(401).send("login falhou");
         }
     )
+
 }
 
-module.exports.obterMatriculasDeAluno = function(req, res){
-    
-}
 module.exports.obterAlunos = function (req, res) {
     let promise = Aluno.find().exec();
     promise.then(
