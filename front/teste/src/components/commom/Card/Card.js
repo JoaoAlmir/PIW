@@ -1,8 +1,9 @@
+import "./Card.css"
 
 function Card({nome,idade}) {
   return (
-    <div className="Card">
-      <h1>Meu nome é {nome} e tenho {idade} anos </h1>
+    <div className="card">
+      <h1> nome {nome} idade {idade} anos </h1>
     </div>
   );
 }
