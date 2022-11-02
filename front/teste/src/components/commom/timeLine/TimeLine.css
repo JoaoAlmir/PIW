@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin:0
+}
+
+.time-line{
+    display: flex;
+    width: 700px;
+    color: rgb(18, 219, 51);
+    background-color: rgb(202, 198, 241);
+    margin: auto;
+    border-radius: 5px;
+    font-size: 20px;
+}
+

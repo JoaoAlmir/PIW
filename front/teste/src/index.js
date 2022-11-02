@@ -1,42 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Card from './components/commom/Card/Card';
+// import Card from './components/commom/Card/Card';
 import './index.css';
+import { Feed } from './pages/paginaFeed/Feed';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let info_gente = [
-  {
-    nome:"ronaldo",
-    idade:"15"
-  },
-  {
-    nome:"pedro",
-    idade:"40"
-  },
-  {
-    nome:"maria",
-    idade:"52"
-  },
 
-]
-
-let gente=[];
-
-for(let info of info_gente){
-  console.log(info);
-  gente.push(
-    <Card nome={info.nome} idade={info.idade}></Card>
-  )
-}
 root.render(
   <React.StrictMode>
-    {/* <Card nome='ronaldo' idade='15'/>
-    <Card nome='pedro'idade='43'/>
-    <Card nome='maria'idade='38'/> */}
-    {/* ou */}
-    {gente}
+
+
+    <Feed></Feed>
 
   </React.StrictMode>
 );

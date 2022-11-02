@@ -1,0 +1,22 @@
+.nav-meio{  
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(42, 127, 212);
+    width: 700px;
+    margin: auto;
+    color: white;
+}
+
+.post{
+    background-color: rgb(30, 112, 194);
+    width:300px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+.like:hover{
+    background-color: rgb(41, 29, 211);
+    cursor: pointer;
+}
+
