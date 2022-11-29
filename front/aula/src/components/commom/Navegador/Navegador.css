@@ -1,0 +1,21 @@
+.navegador{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navegador .esquerda{
+    display: flex;
+}
+
+.navegador a{
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.navegador a:hover, .navegador a.active{
+    background-color: rgb(62, 232, 232);
+}

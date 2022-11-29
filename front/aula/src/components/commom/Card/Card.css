@@ -1,0 +1,17 @@
+.card {
+    background-color: rgb(167, 167, 205);
+    width: 300px;
+}
+
+.card .title{
+    background-color: rgb(158, 158, 241);
+    padding: 12px;
+}
+
+.card .content{
+    height: 200px;
+}
+
+.verde {
+    background-color: green;
+}

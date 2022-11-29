@@ -1,0 +1,10 @@
+.quadrado{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    margin-bottom: 20px;
+}
+
+.quadrado.active{
+    background-color: rgb(255, 0, 0);
+}

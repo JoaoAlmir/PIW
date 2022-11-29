@@ -1,0 +1,19 @@
+.container-link{
+    display: flex;
+    background-color: black;
+    justify-content: space-evenly;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container-botao{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    padding: 5px;
+}
+
+a.active{
+    background-color: rgb(238, 20, 4);
+}

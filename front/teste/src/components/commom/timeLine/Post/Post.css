@@ -14,6 +14,13 @@
     padding-top: 30px;
     padding-bottom: 70px;
 }
+.post-destaque{
+    background-color: rgb(255, 0, 0);
+    width:300px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
 
 .like:hover{
     background-color: rgb(41, 29, 211);
