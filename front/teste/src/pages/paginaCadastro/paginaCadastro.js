@@ -9,6 +9,7 @@ function FormularioCadastro(){
     const {register, handleSubmit} = useForm();
     const nav = useNavigate();
 
+    
     const sub = (aluno) => {
         cadastrar(aluno).then((response) => {
            nav("/login/")

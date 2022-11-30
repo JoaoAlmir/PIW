@@ -1,13 +1,14 @@
 import axios from "axios"
 
-const url_base = "http://localhost:9999"
+const url_base = "http://localhost:3000"
 
 export function login(matricula, senha){
     return axios({
         method:"POST",
         url:url_base+"/alunos/login",
         data:{
-            matricula,senha
+            matricula:matricula,
+            senha:senha
         }
     })
 }

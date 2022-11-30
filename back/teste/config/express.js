@@ -4,7 +4,6 @@ const routes_aluno = require("../app/route/alunos.route");
 const routes_usuario = require("../app/route/usuarios.route");
 const routes_post = require("../app/route/posts.route");
 const routes_comentario = require("../app/route/comentario.route");
-var cors = require('cors')
 
 module.exports = function(){
     let app = express(); 
@@ -12,7 +11,6 @@ module.exports = function(){
     app.set("port", 9999);
     app.use(express.json());
     app.use(express.urlencoded({ extended: false })); 
-    app.use(cors());
     routes_aluno(app);
     routes_usuario(app);
     routes_post(app);

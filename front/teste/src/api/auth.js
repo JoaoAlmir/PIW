@@ -5,7 +5,7 @@ export function login(login_data){
     return(
         axios({
             method: 'POST',
-            url: "http://localhost:9999/alunos/signin",
+            url: "http://localhost:9999/alunos/login",
             data: login_data
        })
     )
