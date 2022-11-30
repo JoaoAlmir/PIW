@@ -1,0 +1,18 @@
+.nav-container{
+    display: flex;
+    background-color: rgb(192, 213, 250);
+    justify-content: space-around;
+}
+
+.nav-botao{
+    cursor: pointer;
+    background-color: rgb(165, 165, 233);
+}
+
+.nav-botao.active{
+    background-color: rgb(245, 116, 93);
+}
+
+a{
+    text-decoration: none;
+}

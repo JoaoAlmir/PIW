@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin:0
+}
+
+.nav-sup{
+    display: flex;
+    width: 700px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(202, 198, 241);
+    margin: auto;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+}
+
+.timeline{
+    background-color: rgb(175, 175, 233);
+}
+
+.timeline.active{
+    background-color: rgb(42, 127, 212);
+}
+
+.postar{
+    background-color: rgb(175, 175, 233);
+    margin-left: 5px;
+}
+
+.postar.active{
+    background-color: rgb(42, 127, 212);
+}
+
+.postar:hover{
+    background-color: blue;
+}
+
+.login{
+    color: black;
+    margin-left: 400px;
+}
